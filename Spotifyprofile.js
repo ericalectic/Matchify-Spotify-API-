@@ -1,4 +1,4 @@
-const clientId = "1a708c69ba954056982f5df7f26f8f19"; // Replace with your client ID
+const clientId = "67648ab8bde04173ba9fc9ec42330ff3"; // Replace with your client ID
 const params = new URLSearchParams(window.location.search);
 const code = params.get("code");
 
@@ -22,7 +22,7 @@ async function redirectToAuthCodeFlow(clientId) {
         const params = new URLSearchParams();
         params.append("client_id", clientId);
         params.append("response_type", "code");
-        params.append("redirect_uri", "http://127.0.0.1:5500/PROJECTS/SPOTIFY%20STREAM%20COUNTER/SpotifyProfile.html");
+        params.append("redirect_uri", "http://127.0.0.1:5500/Spotifyprofile.html");
         params.append("scope", "user-read-private user-read-email");
         params.append("code_challenge_method", "S256");
         params.append("code_challenge", challenge);
@@ -59,7 +59,7 @@ async function getAccessToken(clientId, code) {
         params.append("client_id", clientId);
         params.append("grant_type", "authorization_code");
         params.append("code", code);
-        params.append("redirect_uri", "http://127.0.0.1:5500/PROJECTS/SPOTIFY%20STREAM%20COUNTER/SpotifyProfile.html");
+        params.append("redirect_uri", "http://127.0.0.1:5500/Spotifyprofile.html");
         params.append("code_verifier", verifier);
     
         const result = await fetch("https://accounts.spotify.com/api/token", {
@@ -98,4 +98,6 @@ async function getAccessToken(clientId, code) {
         document.getElementById("uri").setAttribute("href", profile.external_urls.spotify);
         document.getElementById("url").innerText = profile.href;
         document.getElementById("url").setAttribute("href", profile.href);
+        
+        
     }
